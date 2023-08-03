@@ -1,0 +1,9 @@
+# ide & os
+.vscode/
+.DS_Store
+
+# builds
+dist/
+agent/bin/
+agent/lib/
+*.log
