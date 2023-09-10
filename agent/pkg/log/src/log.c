@@ -5,6 +5,8 @@
 #include <string.h> /* strcpy, strcat, strlen */
 #include <time.h>   /* time_t, struct tm, strftime, time, localtime */
 
+#define MAX_FMT_TIME 25
+
 const struct LogLevel LOG_TRACE = {.color = "\x1b[94m", .name = "TRACE"},
                       LOG_DEBUG = {.color = "\x1b[36m", .name = "DEBUG"},
                       LOG_INFO = {.color = "\x1b[32m", .name = "INFO"},
@@ -17,7 +19,7 @@ void log_log(struct LogLevel level, const uint8_t* file, size_t line,
   /* create RFC3339 formatted time */
   time_t gt = time(NULL);
   struct tm* lt = localtime(&gt);
-  uint8_t fmt_time[25] = {0};
+  uint8_t fmt_time[MAX_FMT_TIME] = {0};
   strftime(fmt_time, sizeof(fmt_time), "%FT%T%z", lt);
 
   /* fill prefix */
