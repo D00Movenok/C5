@@ -4,6 +4,4 @@
 
 # builds
 dist/
-agent/bin/
-agent/lib/
 *.log
